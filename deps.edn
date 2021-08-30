@@ -1,10 +1,19 @@
 {:paths ["src"]
 
- :deps {enlive/enlive {:mvn/version "1.1.6"}}
+ :deps {enlive/enlive      {:mvn/version "1.1.6"}
+        clj-http/clj-http  {:mvn/version "3.12.3"}
+        hickory/hickory    {:mvn/version "0.7.1"}
+        toyokumo/tarayo    {:mvn/version "0.2.4"}}
 
- :aliases {:uberjar  {:extra-deps {seancorfield/depstar {:mvn/version "2.0.216"}}
-                      :main-opts  ["-m" "hf.depstar.uberjar" "grouper.jar"
-                                   "-C" "-m" "wildwestrom.grouper"]}
-; clojure -M:outdated --upgrade
-           :outdated {:extra-deps {com.github.liquidz/antq {:mvn/version "0.15.3"}}
-                      :main-opts  ["-m" "antq.core"]}}}
+ :aliases {:uberjar {:extra-deps {com.github.seancorfield/depstar {:mvn/version "2.1.278"}}
+                     :ns-default hf.depstar
+                     :exec-fn    uberjar
+                     :exec-args  {:jar        "target/ts-update.jar"
+                                  :sync-pom    true
+                                  :group-id    xyz.westrom
+                                  :artifact-id ts-update
+                                  :version     "0.0.1"
+                                  :main-class  ts-update.core
+                                  :aot         true}}
+           :upgrade {:extra-deps {com.github.liquidz/antq {:mvn/version "0.16.3"}}
+                     :main-opts  ["-m" "antq.core" "--upgrade"]}}}
