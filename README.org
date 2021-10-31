@@ -1,0 +1,26 @@
+* Teal Swan Premium RSS Server
+  Do you have an a premium membership on [[https://tealswan.com/premium/][tealswan.com]]?\\
+  Do you want to be notified when a new daily update drops?
+
+  This server will allow you to get an RSS feed of all updates to Teal Swan Premium.\\
+  I use the [[https://github.com/SmartRSS/Smart-RSS][Smart RSS]] browser extension to update my feeds.\\
+  This particular reader allows you to put a username and password for login.
+
+  I have an instance running at [[https://www.westrom.xyz/teal-swan-rss][https://www.westrom.xyz/teal-swan-rss]].
+
+** License
+   Teal Swan Premium RSS Reader\\
+   Copyright © 2021 Christian Westrom
+
+   This program is free software: you can redistribute it and/or modify
+   it under the terms of the GNU Affero General Public License as
+   published by the Free Software Foundation, either version 3 of the
+   License, or (at your option) any later version.
+
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU Affero General Public License for more details.
+
+   You should have received a copy of the GNU Affero General Public License
+   along with this program.  If not, see <https://www.gnu.org/licenses/>.
