@@ -113,12 +113,12 @@
 (defn build-feed [premium-page cs]
   (apply rss/channel-xml
          (cons (rss-channel)
-               (map (fn [upd] {:title       (title upd)
-                               :link        (link upd)
-                               :description (desc upd)
-                               :guid        (link upd)
-                               :pubDate     (pub-date (uri (link upd)) cs)})
-                    (latest-updates premium-page)))))
+               (pmap (fn [upd] {:title       (title upd)
+                                :link        (link upd)
+                                :description (desc upd)
+                                :guid        (link upd)
+                                :pubDate     (pub-date (uri (link upd)) cs)})
+                     (latest-updates premium-page)))))
 
 (defn rss-feed
   "Put in a username and password, get an RSS Feed."
@@ -129,6 +129,6 @@
       (do (get-premium-page! premium-page cs)
           (build-feed @premium-page cs))
       (rss/channel-xml
-        (rss-channel)
-        {:title "Failed"
-         :description "Incorrect login credentials. Can't log in to premium account."}))))
+       (rss-channel)
+       {:title "Failed"
+        :description "Incorrect login credentials. Can't log in to premium account."}))))
