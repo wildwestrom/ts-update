@@ -30,11 +30,11 @@
 
 (defn feed-handler
   [request]
-  (let [feed (atom nil)
-        creds (credentials request)]
-    (reset! feed (rss-feed creds))
-    (res/content-type (res/response @feed)
-                      "application/rss+xml")))
+  (println request)
+  (-> (credentials request)
+      rss-feed
+      res/response
+      (res/content-type "application/rss+xml")))
 
 ;; TODO change this authfn from a stub to something working
 (defn authfn
@@ -62,4 +62,4 @@
   (stop)
   (println "Starting")
   (reset! server (http/run-server #'app config))
-  (println (str "Started on port: " (:port config) ".") ))
+  (println (str "Started on port: " (:port config) ".")))

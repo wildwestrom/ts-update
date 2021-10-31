@@ -43,6 +43,7 @@
        (string/join "\n")))
 
 (defn get-body  [uri cs]
+  (println (str "Fetching: " uri))
   (-> uri
       str
       (http/get {:cookie-store cs})
@@ -63,16 +64,15 @@
 
 (defn log-in [username password cs]
   (let [logged-in? (atom false)
-        res (http/post
-             (str login-uri)
-             {:cookie-store     cs
-              :form-params
-              {:csrfKey       (csrf-key cs)
-               :auth          username
-               :password      password
-               :remember_me   "1"
-               :_processLogin "usernamepassword"}
-              :throw-exceptions false})]
+        res        (http/post
+                    (str login-uri)
+                    {:cookie-store     cs
+                     :form-params      {:csrfKey       (csrf-key cs)
+                                        :auth          username
+                                        :password      password
+                                        :remember_me   "1"
+                                        :_processLogin "usernamepassword"}
+                     :throw-exceptions false})]
     (condp = (:status res)
       301 (reset! logged-in? true)
       403 (reset! logged-in? true)
