@@ -3,3 +3,6 @@
 /.cpcache/
 /target/*
 /pom.xml
+/.clj-kondo/
+/.java-version
+/classes/
