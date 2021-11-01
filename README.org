@@ -2,7 +2,8 @@
   Do you have an a premium membership on [[https://tealswan.com/premium/][tealswan.com]]?\\
   Do you want to be notified when a new daily update drops?
 
-  This server will allow you to get an RSS feed of all updates to Teal Swan Premium.\\
+  This server will allow you to get an RSS feed of all updates to Teal Swan Premium.
+
   I use the [[https://github.com/SmartRSS/Smart-RSS][Smart RSS]] browser extension to update my feeds.\\
   This particular reader allows you to put a username and password for login.
 
