@@ -2,7 +2,7 @@
 
  :deps {clj-http/clj-http     {:mvn/version "3.12.3"}
         hickory/hickory       {:mvn/version "0.7.1"}
-        clj-rss/clj-rss       {:mvn/version "0.2.7"}
+        clj-rss/clj-rss       {:mvn/version "0.3.0"}
         http-kit/http-kit     {:mvn/version "2.5.3"}
         ring/ring             {:mvn/version "2.0.0-alpha1"}
         buddy/buddy-auth      {:mvn/version "3.0.1"}
