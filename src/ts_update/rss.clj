@@ -6,7 +6,7 @@
             [hickory.core :as hic]
             [hickory.select :as s]
             [lambdaisland.uri :as uri :refer [uri]])
-  (:import java.util.Date))
+  (:import java.time.Instant))
 
 ;; Constants
 (def base-uri (uri "https://tealswan.com"))
@@ -101,14 +101,13 @@
       first
       :attrs
       :datetime
-      java.time.Instant/parse
-      Date/from))
+      java.time.Instant/parse))
 
 (defn rss-channel []
   {:title         "Teal Swan Premium"
    :link          (str premium-uri)
    :description   "Daily updates and insights from Teal Swan's premium content."
-   :lastBuildDate (Date.)})
+   :lastBuildDate (java.time.Instant/now)})
 
 (defn build-feed [premium-page cs]
   (apply rss/channel-xml
